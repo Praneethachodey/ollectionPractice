@@ -30,4 +30,5 @@ public class MyNode<K> implements INode<K> {
 		return next;
 	}
 
+	
 }

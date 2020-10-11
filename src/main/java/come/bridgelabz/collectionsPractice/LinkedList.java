@@ -4,11 +4,13 @@ public class LinkedList<K> {
 
 	public INode<K> head;
 	public INode<K> tail;
+	public int count;
 
 	public LinkedList() {
 		super();
 		this.head = null;
 		this.tail = null;
+		this.count = 0;
 	}
 
 	public void add(INode<K> newNode) {
@@ -21,6 +23,7 @@ public class LinkedList<K> {
 			this.head = newNode;
 			this.head.setNext(tempNode);
 		}
+		this.count++;
 	}
 
 	public void addAtTail(INode<K> newNode) {
@@ -33,6 +36,7 @@ public class LinkedList<K> {
 			tempNode.setNext(newNode);
 			this.tail = newNode;
 		}
+		this.count++;
 	}
 
 	public void insertAfter(INode<K> destNode, INode<K> newNode) {
@@ -42,6 +46,7 @@ public class LinkedList<K> {
 
 		newNode.setNext(traverseNode.getNext());
 		traverseNode.setNext(newNode);
+		this.count++;
 
 	}
 
@@ -49,6 +54,7 @@ public class LinkedList<K> {
 		if (head == null)
 			return;
 		this.head = this.head.getNext();
+		this.count--;
 	}
 
 	public void popLast() {
@@ -59,6 +65,7 @@ public class LinkedList<K> {
 			tempNode = tempNode.getNext();
 		this.tail = tempNode;
 		this.tail.setNext(null);
+		this.count--;
 	}
 
 	public INode<K> search(K value) {
@@ -71,6 +78,17 @@ public class LinkedList<K> {
 			tempNode = tempNode.getNext();
 		}
 		return null;
+	}
+
+	public int size() {
+		return this.count;
+	}
+
+	public void delete(INode<K> nodeToDelete) {
+		if (this.head == null)
+			return;
+		nodeToDelete.setNext(nodeToDelete.getNext().getNext());
+		this.count--;
 	}
 
 	public void printLinkedList() {

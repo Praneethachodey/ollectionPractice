@@ -107,7 +107,6 @@ public class LinkedListTest {
 		newList.addAtTail(secondNode);
 		newList.addAtTail(thirdNode);
 		INode<Integer> searched = newList.search(30);
-		System.out.println(searched.getData());
 		boolean result = searched.getData().equals(30);
 		Assert.assertTrue(result);
 
@@ -128,6 +127,25 @@ public class LinkedListTest {
 		newList.printLinkedList();
 		boolean result = newList.search(30).getNext().equals(newNode);
 		Assert.assertTrue(result);
+
+	}
+	
+	@Test
+	public void given3numbers_should_delete_after_searching() {
+		MyNode<Integer> firstNode = new MyNode<Integer>(56);
+		MyNode<Integer> secondNode = new MyNode<Integer>(30);
+		MyNode<Integer> thirdNode = new MyNode<Integer>(70);
+		MyNode<Integer> fourthNode = new MyNode<Integer>(40);
+		LinkedList<Integer> newList = new LinkedList<>();
+		newList.addAtTail(firstNode);
+		newList.addAtTail(secondNode);
+		newList.addAtTail(fourthNode);
+		newList.addAtTail(thirdNode);
+		INode<Integer> searched = newList.search(30);
+		newList.delete(searched);
+		newList.printLinkedList();
+		boolean result = newList.search(30).getNext().equals(fourthNode);
+		Assert.assertTrue(!result);
 
 	}
 }
