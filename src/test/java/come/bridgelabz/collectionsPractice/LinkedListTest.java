@@ -96,4 +96,20 @@ public class LinkedListTest {
 		Assert.assertTrue(result);
 
 	}
+	
+	@Test
+	public void given3numbers_should_search_value() {
+		MyNode<Integer> firstNode = new MyNode<Integer>(56);
+		MyNode<Integer> secondNode = new MyNode<Integer>(30);
+		MyNode<Integer> thirdNode = new MyNode<Integer>(70);
+		LinkedList<Integer> newList = new LinkedList<>();
+		newList.addAtTail(firstNode);
+		newList.addAtTail(secondNode);
+		newList.addAtTail(thirdNode);
+		INode<Integer> searched = newList.search(30);
+		System.out.println(searched.getData());
+		boolean result = searched.getData().equals(30);
+		Assert.assertTrue(result);
+
+	}
 }

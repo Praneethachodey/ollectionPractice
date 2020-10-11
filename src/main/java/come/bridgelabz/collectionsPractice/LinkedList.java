@@ -46,17 +46,31 @@ public class LinkedList<K> {
 	}
 
 	public void pop() {
-		if(head==null) return;
+		if (head == null)
+			return;
 		this.head = this.head.getNext();
 	}
 
 	public void popLast() {
-		if(head==null) return;
+		if (head == null)
+			return;
 		INode<K> tempNode = this.head;
 		while (tempNode.getNext() != this.tail)
 			tempNode = tempNode.getNext();
 		this.tail = tempNode;
 		this.tail.setNext(null);
+	}
+
+	public INode<K> search(K value) {
+		if (head == null)
+			return null;
+		INode<K> tempNode = this.head;
+		while (tempNode != null) {
+			if (tempNode.getData() == value)
+				return tempNode;
+			tempNode = tempNode.getNext();
+		}
+		return null;
 	}
 
 	public void printLinkedList() {
