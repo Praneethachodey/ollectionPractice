@@ -40,14 +40,23 @@ public class LinkedList<K> {
 		while (traverseNode != null && traverseNode != destNode)
 			traverseNode = traverseNode.getNext();
 
-		newNode.setNext(traverseNode.getNext());		
+		newNode.setNext(traverseNode.getNext());
 		traverseNode.setNext(newNode);
-		
+
 	}
-	
+
 	public void pop() {
-//		INode<K> tempNode=this.head;
-		this.head=this.head.getNext();
+		if(head==null) return;
+		this.head = this.head.getNext();
+	}
+
+	public void popLast() {
+		if(head==null) return;
+		INode<K> tempNode = this.head;
+		while (tempNode.getNext() != this.tail)
+			tempNode = tempNode.getNext();
+		this.tail = tempNode;
+		this.tail.setNext(null);
 	}
 
 	public void printLinkedList() {
