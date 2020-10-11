@@ -23,6 +23,18 @@ public class LinkedList<K> {
 		}
 	}
 	
+	public void addAtTail(INode<K> newNode) {
+		if (this.head == null)
+			this.head = newNode;
+		if (this.tail == null)
+			this.tail = newNode;
+		else {
+			INode<K> tempNode = this.tail;
+			tempNode.setNext(newNode);
+			this.tail=newNode;
+		}
+	}
+	
 	public void printLinkedList()
 	{
 		StringBuffer mynodes= new StringBuffer("My Nodes : ");
