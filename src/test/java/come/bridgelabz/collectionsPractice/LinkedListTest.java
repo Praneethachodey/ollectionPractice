@@ -32,7 +32,7 @@ public class LinkedListTest {
 		Assert.assertTrue(result);
 
 	}
-	
+
 	@Test
 	public void given3numbers_should_add_from_tail() {
 		MyNode<Integer> firstNode = new MyNode<Integer>(56);
@@ -48,7 +48,7 @@ public class LinkedListTest {
 		Assert.assertTrue(result);
 
 	}
-	
+
 	@Test
 	public void given3numbers_should_insert_between_two_nodes() {
 		MyNode<Integer> firstNode = new MyNode<Integer>(56);
@@ -64,7 +64,7 @@ public class LinkedListTest {
 		Assert.assertTrue(result);
 
 	}
-	
+
 	@Test
 	public void given3numbers_should_delete_head() {
 		MyNode<Integer> firstNode = new MyNode<Integer>(56);
@@ -80,7 +80,7 @@ public class LinkedListTest {
 		Assert.assertTrue(result);
 
 	}
-	
+
 	@Test
 	public void given3numbers_should_delete_tail() {
 		MyNode<Integer> firstNode = new MyNode<Integer>(56);
@@ -96,7 +96,7 @@ public class LinkedListTest {
 		Assert.assertTrue(result);
 
 	}
-	
+
 	@Test
 	public void given3numbers_should_search_value() {
 		MyNode<Integer> firstNode = new MyNode<Integer>(56);
@@ -109,6 +109,24 @@ public class LinkedListTest {
 		INode<Integer> searched = newList.search(30);
 		System.out.println(searched.getData());
 		boolean result = searched.getData().equals(30);
+		Assert.assertTrue(result);
+
+	}
+
+	@Test
+	public void given3numbers_should_insert_after_searching() {
+		MyNode<Integer> firstNode = new MyNode<Integer>(56);
+		MyNode<Integer> secondNode = new MyNode<Integer>(30);
+		MyNode<Integer> thirdNode = new MyNode<Integer>(70);
+		MyNode<Integer> newNode = new MyNode<Integer>(40);
+		LinkedList<Integer> newList = new LinkedList<>();
+		newList.addAtTail(firstNode);
+		newList.addAtTail(secondNode);
+		newList.addAtTail(thirdNode);
+		INode<Integer> searched = newList.search(30);
+		newList.insertAfter(searched, newNode);
+		newList.printLinkedList();
+		boolean result = newList.search(30).getNext().equals(newNode);
 		Assert.assertTrue(result);
 
 	}
