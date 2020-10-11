@@ -22,7 +22,7 @@ public class LinkedList<K> {
 			this.head.setNext(tempNode);
 		}
 	}
-	
+
 	public void addAtTail(INode<K> newNode) {
 		if (this.head == null)
 			this.head = newNode;
@@ -31,18 +31,26 @@ public class LinkedList<K> {
 		else {
 			INode<K> tempNode = this.tail;
 			tempNode.setNext(newNode);
-			this.tail=newNode;
+			this.tail = newNode;
 		}
 	}
-	
-	public void printLinkedList()
-	{
-		StringBuffer mynodes= new StringBuffer("My Nodes : ");
+
+	public void insertAfter(INode<K> destNode, INode<K> newNode) {
+		INode<K> traverseNode = this.head;
+		while (traverseNode != null && traverseNode != destNode)
+			traverseNode = traverseNode.getNext();
+
+		newNode.setNext(traverseNode.getNext());		
+		traverseNode.setNext(newNode);
+		
+	}
+
+	public void printLinkedList() {
+		StringBuffer mynodes = new StringBuffer("My Nodes : ");
 		INode<K> tempNode = this.head;
-		while(tempNode.getNext()!=null)
-		{
-			mynodes.append(tempNode.getData());			
-			tempNode=tempNode.getNext();
+		while (tempNode.getNext() != null) {
+			mynodes.append(tempNode.getData());
+			tempNode = tempNode.getNext();
 			mynodes.append("->");
 		}
 		mynodes.append(tempNode.getData());
