@@ -1,6 +1,6 @@
 package come.bridgelabz.collectionsPractice;
 
-public class LinkedList<K> {
+public class LinkedList<K extends Comparable<K>> {
 
 	public INode<K> head;
 	public INode<K> tail;
@@ -89,6 +89,32 @@ public class LinkedList<K> {
 			return;
 		nodeToDelete.setNext(nodeToDelete.getNext().getNext());
 		this.count--;
+	}
+
+	public void addSorted(INode<K> newNode) {
+		if (this.head == null)
+			this.head = newNode;
+		if (this.tail == null)
+			this.tail = newNode;
+		else {
+			INode<K> traverseNode = this.head;
+			INode<K> prevNode = null;
+			while (traverseNode != null && traverseNode.getData().compareTo(newNode.getData()) < 0) {
+				prevNode = traverseNode;
+				traverseNode = traverseNode.getNext();
+			}
+			if (prevNode == null) {
+				newNode.setNext(this.head);
+				this.head = newNode;
+				return;
+			}
+			prevNode.setNext(newNode);
+			newNode.setNext(traverseNode);
+			if (traverseNode == null) {
+				this.tail = newNode;
+			}
+		}
+		this.count++;
 	}
 
 	public void printLinkedList() {

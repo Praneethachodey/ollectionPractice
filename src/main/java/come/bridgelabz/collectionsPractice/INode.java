@@ -1,6 +1,6 @@
 package come.bridgelabz.collectionsPractice;
 
-public interface INode<K> {
+public interface INode<K>{
 	void setData(K data);
 
 	K getData();

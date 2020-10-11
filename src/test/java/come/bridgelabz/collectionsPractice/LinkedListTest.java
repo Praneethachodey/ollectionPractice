@@ -144,7 +144,25 @@ public class LinkedListTest {
 		INode<Integer> searched = newList.search(30);
 		newList.delete(searched);
 		newList.printLinkedList();
+		System.out.println("new size after deletion " +newList.size());
 		boolean result = newList.search(30).getNext().equals(fourthNode);
+		Assert.assertTrue(!result);
+
+	}
+	
+	@Test
+	public void given3numbers_should_add_sorted() {
+		MyNode<Integer> firstNode = new MyNode<Integer>(56);
+		MyNode<Integer> secondNode = new MyNode<Integer>(30);
+		MyNode<Integer> thirdNode = new MyNode<Integer>(70);
+		MyNode<Integer> fourthNode = new MyNode<Integer>(40);
+		LinkedList<Integer> newList = new LinkedList<>();
+		newList.addSorted(firstNode);
+		newList.addSorted(secondNode);
+		newList.addSorted(fourthNode);
+		newList.addSorted(thirdNode);
+		newList.printLinkedList();
+		boolean result = newList.head.equals(firstNode) && newList.tail.equals(thirdNode);
 		Assert.assertTrue(!result);
 
 	}
