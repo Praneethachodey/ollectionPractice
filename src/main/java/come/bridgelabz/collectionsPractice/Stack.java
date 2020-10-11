@@ -14,13 +14,17 @@ public class Stack<K extends Comparable<K>> {
 		this.count++;
 		newList.add(newNode);
 	}
-	public void printStack()
-    {
-        newList.printLinkedList();
-    }
-	public INode<K> peek()
-	{
+
+	public void printStack() {
+		newList.printLinkedList();
+	}
+
+	public INode<K> peek() {
 		return newList.head;
+	}
+
+	public void pop() {
+		newList.pop();
 	}
 
 }
