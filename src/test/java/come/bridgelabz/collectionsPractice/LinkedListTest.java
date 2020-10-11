@@ -64,4 +64,20 @@ public class LinkedListTest {
 		Assert.assertTrue(result);
 
 	}
+	
+	@Test
+	public void given3numbers_should_delete_head() {
+		MyNode<Integer> firstNode = new MyNode<Integer>(56);
+		MyNode<Integer> secondNode = new MyNode<Integer>(30);
+		MyNode<Integer> thirdNode = new MyNode<Integer>(70);
+		LinkedList<Integer> newList = new LinkedList<>();
+		newList.addAtTail(firstNode);
+		newList.addAtTail(secondNode);
+		newList.addAtTail(thirdNode);
+		newList.pop();
+		newList.printLinkedList();
+		boolean result = newList.head.equals(secondNode) && newList.tail.equals(thirdNode);
+		Assert.assertTrue(result);
+
+	}
 }
