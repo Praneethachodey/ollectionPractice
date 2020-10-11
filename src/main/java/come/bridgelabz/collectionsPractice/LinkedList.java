@@ -22,5 +22,19 @@ public class LinkedList<K> {
 			this.head.setNext(tempNode);
 		}
 	}
+	
+	public void printLinkedList()
+	{
+		StringBuffer mynodes= new StringBuffer("My Nodes : ");
+		INode<K> tempNode = this.head;
+		while(tempNode.getNext()!=null)
+		{
+			mynodes.append(tempNode.getData());			
+			tempNode=tempNode.getNext();
+			mynodes.append("->");
+		}
+		mynodes.append(tempNode.getData());
+		System.out.println(mynodes);
+	}
 
 }
