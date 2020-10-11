@@ -18,5 +18,20 @@ public class QueueTest {
 		Assert.assertEquals(returned, firstNode);
 
 	}
+	@Test
+	public void given3numbers_should_pop_and_peek() {
+		MyNode<Integer> firstNode = new MyNode<Integer>(56);
+		MyNode<Integer> secondNode = new MyNode<Integer>(30);
+		MyNode<Integer> thirdNode = new MyNode<Integer>(70);
+		Queue<Integer> newQueue = new Queue<>();
+		newQueue.enqueue(firstNode);
+		newQueue.enqueue(secondNode);
+		newQueue.enqueue(thirdNode);
+		newQueue.pop();
+		newQueue.printStack();
+		INode<Integer> returned = newQueue.peek();
+		Assert.assertEquals(returned, secondNode);
+	}
+	
 
 }
