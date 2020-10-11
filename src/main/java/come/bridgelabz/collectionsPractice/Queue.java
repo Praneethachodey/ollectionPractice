@@ -1,18 +1,18 @@
 package come.bridgelabz.collectionsPractice;
 
-public class Stack<K extends Comparable<K>> {
-	public int count = 0;
+public class Queue<K extends Comparable<K>> {
+	public int count;
 	public LinkedList<K> newList;
-
-	public Stack() {
+	
+	public Queue() {
 		super();
-		count = 0;
 		newList = new LinkedList<>();
+		count=0;
 	}
-
-	public void push(INode<K> newNode) {
+	
+	public void enqueue(INode<K> newNode) {
 		this.count++;
-		newList.add(newNode);
+		newList.addAtTail(newNode);
 	}
 
 	public void printStack() {
@@ -38,3 +38,8 @@ public class Stack<K extends Comparable<K>> {
 	}
 
 }
+
+	
+	
+
+
