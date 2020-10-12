@@ -12,7 +12,7 @@ public class Queue<K extends Comparable<K>> {
 	
 	public void enqueue(INode<K> newNode) {
 		this.count++;
-		newList.addAtTail(newNode);
+		newList.append(newNode);
 	}
 
 	public void printStack() {

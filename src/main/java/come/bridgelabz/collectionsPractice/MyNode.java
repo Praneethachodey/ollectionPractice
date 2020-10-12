@@ -11,12 +11,12 @@ public class MyNode<K> implements INode<K> {
 	}
 
 	@Override
-	public void setData(K data) {
+	public void setKey(K data) {
 		this.data = data;
 	}
 
 	@Override
-	public K getData() {
+	public K getKey() {
 		return data;
 	}
 

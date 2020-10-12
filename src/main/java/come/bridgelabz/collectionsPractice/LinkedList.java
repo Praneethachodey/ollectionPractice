@@ -26,14 +26,13 @@ public class LinkedList<K extends Comparable<K>> {
 		this.count++;
 	}
 
-	public void addAtTail(INode<K> newNode) {
+	public void append(INode<K> newNode) {
 		if (this.head == null)
 			this.head = newNode;
 		if (this.tail == null)
 			this.tail = newNode;
 		else {
-			INode<K> tempNode = this.tail;
-			tempNode.setNext(newNode);
+			this.tail.setNext(newNode);
 			this.tail = newNode;
 		}
 		this.count++;
@@ -73,7 +72,7 @@ public class LinkedList<K extends Comparable<K>> {
 			return null;
 		INode<K> tempNode = this.head;
 		while (tempNode != null) {
-			if (tempNode.getData() == value)
+			if (tempNode.getKey().equals(value))
 				return tempNode;
 			tempNode = tempNode.getNext();
 		}
@@ -99,7 +98,7 @@ public class LinkedList<K extends Comparable<K>> {
 		else {
 			INode<K> traverseNode = this.head;
 			INode<K> prevNode = null;
-			while (traverseNode != null && traverseNode.getData().compareTo(newNode.getData()) < 0) {
+			while (traverseNode != null && traverseNode.getKey().compareTo(newNode.getKey()) < 0) {
 				prevNode = traverseNode;
 				traverseNode = traverseNode.getNext();
 			}
@@ -121,12 +120,17 @@ public class LinkedList<K extends Comparable<K>> {
 		StringBuffer mynodes = new StringBuffer("My Nodes : ");
 		INode<K> tempNode = this.head;
 		while (tempNode.getNext() != null) {
-			mynodes.append(tempNode.getData());
+			mynodes.append(tempNode.getKey());
 			tempNode = tempNode.getNext();
 			mynodes.append("->");
 		}
-		mynodes.append(tempNode.getData());
+		mynodes.append(tempNode.getKey());
 		System.out.println(mynodes);
+	}
+	
+	public String toString()
+	{
+		return "MyLinkedListNodes are { "+ head +"}";
 	}
 
 }

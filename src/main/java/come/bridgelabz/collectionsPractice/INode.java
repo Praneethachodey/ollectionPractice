@@ -1,9 +1,9 @@
 package come.bridgelabz.collectionsPractice;
 
 public interface INode<K>{
-	void setData(K data);
+	void setKey(K key);
 
-	K getData();
+	K getKey();
 
 	void setNext(INode<K> Node);
 
