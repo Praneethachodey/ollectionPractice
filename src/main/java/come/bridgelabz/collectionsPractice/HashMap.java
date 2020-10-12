@@ -22,10 +22,9 @@ public class HashMap<K extends Comparable<K>, V> {
 			myMapNode.setValue(value);
 		}
 	}
-	
+
 	@Override
-	public String toString()
-	{
-		return "MyHashMapNodes{"+newList+"}";
+	public String toString() {
+		return "MyHashMapNodes{" + newList + "}";
 	}
 }

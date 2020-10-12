@@ -18,9 +18,9 @@ public class MapTest {
 				value = value + 1;
 			myHashMap.add(word, value);
 		}
-		int frequency=myHashMap.get("to");
+		int frequency = myHashMap.get("to");
 		System.out.println(myHashMap);
-		Assert.assertSame(2,frequency);
+		Assert.assertSame(2, frequency);
 
 	}
 

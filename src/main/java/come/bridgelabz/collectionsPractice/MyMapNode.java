@@ -39,13 +39,12 @@ public class MyMapNode<K, V> implements INode<K> {
 	public void setKey(K key) {
 		this.key = key;
 	}
-	
+
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		StringBuilder myMapNodeString = new StringBuilder();
 		myMapNodeString.append("myMapNode{" + "K=").append(key).append(("V=")).append(value).append("}");
-		if(next!=null)
+		if (next != null)
 			myMapNodeString.append("->").append(next);
 		return myMapNodeString.toString();
 	}

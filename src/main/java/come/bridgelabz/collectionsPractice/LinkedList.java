@@ -89,6 +89,21 @@ public class LinkedList<K extends Comparable<K>> {
 		nodeToDelete.setNext(nodeToDelete.getNext().getNext());
 		this.count--;
 	}
+	
+	public void deleteAt(INode<K> nodeToDelete) {
+		if (this.head == null)
+			return;
+		INode<K> tempNode=head;
+		INode<K> prevNode=head;
+		while(tempNode!=null && tempNode!=nodeToDelete)
+		{
+			prevNode=tempNode;
+			tempNode=tempNode.getNext();
+		}
+		prevNode.setNext(tail.getNext());
+		if(tempNode==null) this.tail=prevNode;
+		this.count--;
+	}
 
 	public void addSorted(INode<K> newNode) {
 		if (this.head == null)
@@ -127,10 +142,9 @@ public class LinkedList<K extends Comparable<K>> {
 		mynodes.append(tempNode.getKey());
 		System.out.println(mynodes);
 	}
-	
-	public String toString()
-	{
-		return "MyLinkedListNodes are { "+ head +"}";
+
+	public String toString() {
+		return "MyLinkedListNodes are { " + head + "}";
 	}
 
 }
